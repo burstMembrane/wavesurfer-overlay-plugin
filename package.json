@@ -1,0 +1,32 @@
+{
+  "name": "wavesurfer-overlay-plugin",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/overlay-plugin.umd.js",
+  "module": "./dist/overlay-plugin.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/overlay-plugin.es.js",
+      "require": "./dist/overlay-plugin.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite --config vite.dev.config.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "publish": "npm run build && npm publish"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "wavesurfer.js": "^7.9.4"
+  },
+  "peerDependencies": {
+    "wavesurfer.js": "^7.0.0"
+  }
+}
