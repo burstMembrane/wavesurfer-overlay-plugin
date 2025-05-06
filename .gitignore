@@ -11,7 +11,8 @@ lerna-debug.log*
 uv.lock
 scripts/
 .venv/
-
+*.mp3
+*.png
 node_modules
 dist
 dist-ssr
