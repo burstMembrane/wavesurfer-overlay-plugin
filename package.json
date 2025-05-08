@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "vite --config vite.dev.config.ts",
     "build": "tsc && vite build",
+    "build-example": "vite build --config vite.dev.config.ts",
     "preview": "vite preview",
     "prepublishOnly": "bun run build"
   },

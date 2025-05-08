@@ -15,6 +15,7 @@ export type OverlayPluginEvents = {
 /** Position of the overlay relative to the waveform */
 export type Position = "overlay" | "underlay"
 
+export type ImageRendering = "crisp-edges" | "pixelated" | "auto"
 /**
  * Configuration options for the OverlayPlugin
  */
@@ -33,6 +34,8 @@ export interface OverlayPluginOptions {
     position?: Position
     /** Whether to hide the waveform */
     hideWaveform?: boolean
+    /** Rendering mode for the overlay image(s) */
+    imageRendering?: ImageRendering
 }
 
 /**
@@ -109,6 +112,7 @@ export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPlugin
         if (!options) {
             throw Error('OverlayPlugin options are required')
         }
+        console.log('Creating OverlayPlugin with options:', options)
         return new OverlayPlugin(options)
     }
 
@@ -139,6 +143,7 @@ export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPlugin
         this.images.forEach((image, index) => {
             const overlay = createElement('div', {
                 style: {
+                    imageRendering: this.options.imageRendering || "auto",
                     backgroundImage: `url(${image.src})`,
                     backgroundPosition: '0 0',
                     backgroundRepeat: 'no-repeat',
@@ -271,6 +276,8 @@ export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPlugin
         this.emit('destroy')
         this.subscriptions.forEach((unsubscribe) => unsubscribe())
         this.overlayWrapper.remove()
+        // remove all images from the overlay wrapper
+        this.overlayWrapper.innerHTML = ''
     }
 }
 
