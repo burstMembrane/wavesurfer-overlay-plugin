@@ -62,7 +62,7 @@ export interface OverlayPluginOptions {
  * );
  * ```
  */
-export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPluginOptions> {
+export default class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPluginOptions> {
     /** Subscriptions to WaveSurfer events */
     protected subscriptions: (() => void)[] = []
     /** Container element for the overlay */
@@ -246,6 +246,7 @@ export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPlugin
                     this.wavesurfer.on('redraw', () => this.initOverlay())
                 )
             })
+
         )
 
         if (this.options.hideWaveform) {
@@ -256,6 +257,8 @@ export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPlugin
                 waveColor: 'transparent',
             })
         }
+
+
         return
     }
 
@@ -281,4 +284,3 @@ export class OverlayPlugin extends BasePlugin<OverlayPluginEvents, OverlayPlugin
     }
 }
 
-export default OverlayPlugin

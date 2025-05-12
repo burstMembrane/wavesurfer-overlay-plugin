@@ -1,5 +1,3 @@
-
-import { OverlayPlugin } from './overlay'
-import type { OverlayPluginOptions } from './overlay'
+import OverlayPlugin from './overlay'
+export * from './overlay'
 export default OverlayPlugin
-export type { OverlayPluginOptions }

@@ -2,7 +2,7 @@ import type { UserConfig } from 'vite'
 import path from 'path'
 import dts from 'vite-plugin-dts'
 export default {
-    plugins: [dts({ rollupTypes: false })],
+    plugins: [dts({ rollupTypes: true })],
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
