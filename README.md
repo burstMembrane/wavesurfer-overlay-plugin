@@ -1,5 +1,5 @@
 # Wavesurfer Overlay Plugin
-
+[![npm version](https://badge.fury.io/js/wavesurfer-overlay-plugin.svg)](https://badge.fury.io/js/wavesurfer-overlay-plugin)
 ![Example](./assets/example.png)
 This plugin adds image overlay/underlay capabilities to a `wavesurfer.js` instance, allowing for audio-synced visualizations such as spectrograms, waveform analyses, or any other time-aligned images.
 
